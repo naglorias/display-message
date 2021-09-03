@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS only -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+    <title>Display Message</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        font-family: "Caveat", cursive;
+        background-color: #f7f6f2;
+      }
+      .wrapper {
+        width: 680px;
+        height: 470px;
+        border: 1rem solid #000;
+        margin-top: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+      }
+      h2 {
+        font-size: 2em;
+        text-decoration: underline;
+        color: #bd4b4b;
+      }
+      .message-form {
+        margin: 3rem;
+        width: 70%;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+      }
+      form input {
+        width: 100%;
+      }
+      form input:focus {
+        border: 0.13rem solid #ccc;
+        outline: none;
+      }
+      i {
+        position: absolute;
+      }
+
+      .bi {
+        padding: 10px;
+        min-width: 40px;
+        margin-top: 1rem;
+      }
+
+      #message {
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+        margin-top: 1rem;
+      }
+      label {
+        font-size: 1.3em;
+      }
+      .submiting {
+        margin-top: 1rem;
+        width: 160px;
+        height: 40px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 1em;
+        background-color: #bd4b4b;
+      }
+      .displayer p {
+        font-size: 1.5em;
+        font-family: "Times New Roman", Times, serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <div class="title">
+          <h2>Display Message</h2>
+        </div>
+        <div class="message-form">
+          <form action="/">
+            <div><label for="message"> Enter your Message:</label></div>
+            <div>
+              <i class="bi bi-chat-left-text-fill"></i>
+              <input type="text" name="message" id="message" />
+            </div>
+            <div>
+              <button type="button" class="submiting">Submit message</button>
+            </div>
+          </form>
+        </div>
+        <div class="displayer">
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    let myInput = document.getElementById("message");
+    let submitMessage = document.querySelector(".submiting");
+    let displayMessage = document.querySelector(".displayer p");
+
+    submitMessage.addEventListener("click", () => {
+      if (myInput.value == null) {
+        displayMessage.textContent = "";
+      } else {
+        displayMessage.textContent = myInput.value.toUpperCase();
+        myInput.value = "";
+      }
+    });
+  </script>
+</html>
